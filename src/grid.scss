@@ -21,8 +21,25 @@ $items: 12;
 .grid {
   display: flex;
   flex-flow: row wrap;
+  height: 100%;
 }
-
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  height: 100%;
+}
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 1300px;
+  }
+}
 
 @each $key, $value in $breakpoints {
   @for $i from 1 through $items {
