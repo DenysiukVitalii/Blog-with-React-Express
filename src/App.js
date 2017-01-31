@@ -3,6 +3,7 @@ import './App.css';
 
 
 import Header from './Header';
+import Footer from './Footer'; 
 import Posts from './Posts';
 import Aside from './Sidebar';
 
@@ -36,6 +37,7 @@ class App extends Component {
             <Aside setFilter={this.handleFilter}/>
           </div>
         </div>
+        <Footer />
      </div>
     );
   }

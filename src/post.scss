@@ -1,3 +1,11 @@
+a {
+  text-decoration: none;
+  color: #000;
+  font-weight: bolder;
+  &:hover{
+    color: #6848a8;
+  }
+}
 .post {
   margin: 5px;
 }
