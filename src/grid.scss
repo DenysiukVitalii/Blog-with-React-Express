@@ -18,6 +18,9 @@ $breakpoints: (
 
 $items: 12;
 
+.text-right {
+  text-align: right; 
+}
 .grid {
   display: flex;
   flex-flow: row wrap;
