@@ -1,8 +1,8 @@
-import { combineReducers } from 'redux'
-import visibilityFilter from './visibilityFilter'
+import { combineReducers } from 'redux';
+import visibilityFilter from './visibilityFilter';
 
 const blogApp = combineReducers({
-  visibilityFilter
+	visibilityFilter
 })
 
 export default blogApp;

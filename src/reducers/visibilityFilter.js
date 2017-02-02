@@ -1,9 +1,11 @@
-const visibilityFilter = (state = 'SHOW_ALL', action) => {
+const visibilityFilter = (state = 'FILTER_DATE', action) => {
 
   switch (action.type) {
-    case 'SET_VISIBILITY_FILTER': return action.filter
+    case 'FILTER_DATE': return 'FILTER_DATE';
+    case 'FILTER_POPULAR': return 'FILTER_POPULAR';
     default: return state
   }
+
 }
 
 export default visibilityFilter;

@@ -2,27 +2,20 @@ import React, { Component } from 'react';
 
 class Filters extends Component {
 
-  constructor(props) {
-	    super(props);
-	    this.handleChange = this.handleChange.bind(this);
-  	}
-
-	handleChange(e) {
-		this.props.setFilter(e.target.id);
-  }
-
 
   render () {
+
+    console.log(this.props.state);
       return (
         <div>
           <p>Фильтр:<br />
             <label htmlFor="date">
-              <input type="radio" name="filter" value="newest" id="date" onChange={this.handleChange}/>
+              <input type="radio" name="filter" value="newest" id="date" onChange={this.props.setDate} defaultChecked/>
               По новизне
             </label>
             <br />
             <label htmlFor="popular">
-              <input type="radio" name="filter" value="popular" id="popular" onChange={this.handleChange}/>
+              <input type="radio" name="filter" value="popular" id="popular" onChange={this.props.setPopular}/>
               По популярности
             </label>
           </p>

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
-import Filters from './Filters';
-
+import FilterNews from '../containers/FilterNews';
 
 class Aside extends Component {
   render() {
@@ -9,7 +8,7 @@ class Aside extends Component {
       <aside>
           <div className="grid">
             <div className="gitem-lg-12">
-              <Filters setFilter={this.props.setFilter} />
+              <FilterNews setFilter={this.props.setFilter} />
             </div>
           </div>
       </aside>
