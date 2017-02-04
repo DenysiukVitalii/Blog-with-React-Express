@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import App from './components/App';
 import blogApp from './reducers';
+import { selectSource } from './actions/newsAPIactions';
 import './components/index.css';
 
 let store = createStore(blogApp);
