@@ -9,6 +9,7 @@ class Post extends Component {
         return (
 
             <div className="gitem-lg-2 post">
+            <a href={ this.props.info.link } target='_blank'>
              <div className="post">
 
                 <div className="grid">
@@ -33,6 +34,7 @@ class Post extends Component {
                 </div>
 
              </div>
+             </a>
           </div>
 
         );

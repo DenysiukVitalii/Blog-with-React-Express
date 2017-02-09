@@ -1,20 +1,29 @@
 import React, { Component } from 'react';
 import './grid.scss';
 import Post from './Post';
+import BlogCard from './BlogCard';
 
 
 class Posts extends Component {
 
 
   render() {
-    let news = this.props.news.map((news) => {
-			return <Post key={news.id} info={news} />
-		});
+    let cards;
+
+    if (this.props.type === 'blog') {
+			cards = this.props.news.map((news) => {
+				return <BlogCard key={news.id} info={news} />
+			});
+		} else if (this.props.type === 'news') {
+			cards = this.props.news.map((news) => {
+				return <Post key={news.id} info={news} />
+			});
+		}
 
     return (
       <section>
           <div className="grid">
-              { news }
+              { cards }
           </div>
       </section>
     );

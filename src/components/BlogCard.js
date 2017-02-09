@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './grid.scss';
 import './post.scss';
 
-
 class BlogCard extends Component {
 
   render() {

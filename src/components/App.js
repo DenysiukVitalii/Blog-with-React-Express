@@ -3,7 +3,6 @@ import './App.css';
 import Header from './Header';
 import Footer from './Footer';
 import Aside from './Sidebar';
-import NewsContainer from '../containers/NewsContainer'
 
 class App extends Component {
 
@@ -15,10 +14,11 @@ class App extends Component {
         <Header></Header>
         <div className="grid container">
           <div className="gitem-lg-9">
-            <NewsContainer />
+            { this.props.children }
+
           </div>
           <div className="gitem-lg-3">
-            <Aside />
+            <Aside path={this.props.location.pathname}/>
           </div>
         </div>
         <Footer />
