@@ -5,8 +5,13 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import createLogger from 'redux-logger';
+import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
 import App from './components/App';
+import Admin from './components/Admin';
+import Blog from './components/Blog';
+import News from './components/News';
+
 import blogApp from './reducers';
 import { fetchPostsIfNeeded } from './actions/newsAPIactions';
 import './components/index.css';
@@ -26,7 +31,13 @@ const loggerMiddleware = createLogger();
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <Router history={ browserHistory }>
+      <Route path='/' component={ App }>
+        <IndexRoute component={ Blog } />
+        <Route path="news" component={News} />
+      </Route>
+      <Route path='admin' component={Admin} />
+    </Router>
   </Provider>,
   document.getElementById('root')
 );
