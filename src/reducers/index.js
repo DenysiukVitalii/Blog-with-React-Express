@@ -6,7 +6,7 @@ import articlesBySource from './articles';
 const blogApp = combineReducers({
 	visibilityFilter,
 	selectedSource,
-	articleBySource
-})
+	articlesBySource
+}) 
 
 export default blogApp;
