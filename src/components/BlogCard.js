@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import './grid.scss';
-import './post.scss';
+import './grid.css';
+import './post.css';
 
 class BlogCard extends Component {
 

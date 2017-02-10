@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 
-import './Header.sass';
-import './grid.scss';
+import './Header.css';
+import './grid.css';
 
 class Header extends Component {
   render() {

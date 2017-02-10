@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './grid.scss';
+import './grid.css';
 import Post from './Post';
 import BlogCard from './BlogCard';
 
