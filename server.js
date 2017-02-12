@@ -2,9 +2,13 @@ const express = require('express');
 const path = require('path');
 const morgan = require('morgan');
 const config = require('./config');
+const cors = require('cors');
 const postRouter = require('./app/routes');
 
 var app = express();
+
+app.use(cors());
+
 require('./app/routes')(app);
 
 
