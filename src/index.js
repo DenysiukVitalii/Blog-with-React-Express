@@ -11,6 +11,7 @@ import App from './components/App';
 import Admin from './components/Admin';
 import Blog from './components/Blog';
 import News from './components/News';
+import PageNewsContainer from './containers/PageNewsContainer';
 
 import blogApp from './reducers';
 import { fetchPostsIfNeeded } from './actions/newsAPIactions';
@@ -34,6 +35,7 @@ ReactDOM.render(
     <Router history={ browserHistory }>
       <Route path='/' component={ App }>
         <IndexRoute component={ Blog } />
+        <Route path='posts/:postId' component={PageNewsContainer} />
         <Route path="news" component={News} />
       </Route>
       <Route path='admin' component={Admin} />
