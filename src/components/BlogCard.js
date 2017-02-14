@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
+
 import './grid.css';
 import './post.css';
 
@@ -6,7 +8,7 @@ class BlogCard extends Component {
 
   render() {
         return (
-
+            <Link to={"/posts/" + this.props.info.id}>
             <div className="gitem-lg-2 post">
              <div className="post">
 
@@ -33,7 +35,7 @@ class BlogCard extends Component {
 
              </div>
           </div>
-
+          </Link>
         );
   }
 }
