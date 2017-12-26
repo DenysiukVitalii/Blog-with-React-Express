@@ -15,7 +15,7 @@ if (!dev) {
     app.use(compression());
     app.use(morgan('common'));
 
-    dbUrl = 'mongodb://localhost/simpleblog';
+    dbUrl = 'mongodb://admin:12345@ds133017.mlab.com:33017/simpleblog';
 
     app.use(express.static(path.resolve('../', 'build')));
 
