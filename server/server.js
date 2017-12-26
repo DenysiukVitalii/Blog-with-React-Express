@@ -1,10 +1,33 @@
 import express from 'express';
 import mongodb from 'mongodb';
 import bodyParser from 'body-parser';
+import compression from 'compression';
+import morgan from 'morgan';
+import path from 'path';
 
 const app = express();
+const dev = app.get('env') !== 'production';
 app.use(bodyParser.json());
-const dbUrl = 'mongodb://localhost/simpleblog';
+let dbUrl;  
+
+if (!dev) {
+    app.disable('x-powered-by');
+    app.use(compression());
+    app.use(morgan('common'));
+
+    dbUrl = 'mongodb://localhost/simpleblog';
+
+    app.use(express.static(path.resolve('../', 'build')));
+
+    app.get('/', (req, res) => {
+        res.sendFile(path.resolve('../', 'build', 'index.html'));
+    })
+}
+
+if (dev) {
+    app.use(morgan('dev'));
+    dbUrl = 'mongodb://localhost/simpleblog';
+}
 
 function validate(data) {
     let errors = {};
@@ -14,6 +37,7 @@ function validate(data) {
     const isValid = Object.keys(errors).length === 0;
     return { errors, isValid };
 }
+
 
 mongodb.MongoClient.connect(dbUrl, function(err, database) {
     const db = database.db('simpleblog');
@@ -80,5 +104,5 @@ mongodb.MongoClient.connect(dbUrl, function(err, database) {
         })
     })
 
-    app.listen(8080, () => console.log('Server is running on localhost:8080'));
+    app.listen(process.env.PORT || 8081, () => console.log('Server is running on localhost:8081'));
 })

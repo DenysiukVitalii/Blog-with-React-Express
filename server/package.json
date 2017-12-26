@@ -5,15 +5,20 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon --exec babel-node -- ./server.js"
+    "start": "nodemon --exec babel-node -- ./server.js",
+    "build": "babel server.js -d server-es5.js --presets es2015"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "babel": "^6.23.0",
+    "babel-cli": "^6.26.0",
     "body-parser": "^1.18.2",
+    "compression": "^1.7.1",
     "express": "^4.16.2",
-    "mongodb": "^3.0.0"
+    "mongodb": "^3.0.0",
+    "morgan": "^1.9.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
