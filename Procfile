@@ -1,1 +1,1 @@
-web: node server/build/server.js
+web: NODE_ENV=production node server.js

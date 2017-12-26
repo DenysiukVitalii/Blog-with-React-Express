@@ -1,9 +1,9 @@
-import express from 'express';
-import mongodb from 'mongodb';
-import bodyParser from 'body-parser';
-import compression from 'compression';
-import morgan from 'morgan';
-import path from 'path';
+const express = require('express');
+const mongodb = require('mongodb');
+const bodyParser = require('body-parser');
+const compression = require('compression');
+const morgan = require('morgan');
+const path = require('path');
 
 const app = express();
 const dev = app.get('env') !== 'production';
@@ -17,10 +17,10 @@ if (!dev) {
 
     dbUrl = 'mongodb://admin:12345@ds133017.mlab.com:33017/simpleblog';
 
-    app.use(express.static(path.resolve('../', 'build')));
+    app.use(express.static(path.resolve(__dirname, 'build')));
 
     app.get('/', (req, res) => {
-        res.sendFile(path.resolve('../', 'build', 'index.html'));
+        res.sendFile(path.resolve(__dirname, 'build', 'index.html'));
     })
 }
 
