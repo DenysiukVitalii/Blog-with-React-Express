@@ -8,6 +8,7 @@ class PostForm extends Component {
         cover: this.props.post ? this.props.post.cover : '',
         text: this.props.post ? this.props.post.text : '',
         date: this.props.post ? this.props.post.date : '',
+        views: this.props.post ? this.props.post.views : 0,
         errors: {},
         loading: false
     }
@@ -18,7 +19,8 @@ class PostForm extends Component {
             title: nextProps.post.title,
             cover: nextProps.post.cover,
             text: nextProps.post.text,
-            date: nextProps.post.date
+            date: nextProps.post.date,
+            views: nextProps.post.views
         })
     }
 
@@ -47,10 +49,10 @@ class PostForm extends Component {
         const isValid = Object.keys(errors).length === 0;
 
         if (isValid) {
-            const { _id, title, cover, text } = this.state;
+            const { _id, title, cover, text, views } = this.state;
             const date = new Date().toLocaleDateString();
             this.setState({ loading: true });
-            this.props.savePost({_id, title, cover, text, date})
+            this.props.savePost({_id, title, cover, text, date, views})
             .catch((err) => err.response.json().then(({errors}) => this.setState({ errors, loading: false})));
         }
 

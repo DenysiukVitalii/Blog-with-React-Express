@@ -10,7 +10,7 @@ class PostPage extends Component {
         cover: this.props.post ? this.props.post.cover : '',
         text: this.props.post ? this.props.post.text : '',
         date: this.props.post ? this.props.post.date : '',
-        views: this.props.post ? this.props.post.views : null
+        views: this.props.post ? this.props.post.views : 0
     }
 
     componentWillReceiveProps = (nextProps) => {
