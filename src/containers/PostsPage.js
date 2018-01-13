@@ -11,21 +11,25 @@ class PostsPage extends Component {
     }
 
     render() {
+        const { match } = this.props;
         return (
-            <div>   
-                <div className="ui secondary  menu">
-                    <h1 className="item">
-                        Posts List
-                    </h1>
-                    <div className="right menu">
-                        <div className="ui item">
-                            <Link className="ui button" to="/posts/new">
-                                Create post
-                            </Link>
+            <div>
+                {
+                    match.url.includes('posts') ? 
+                    <div className="ui secondary  menu">
+                        <h1 className="item">
+                            Posts List
+                        </h1>
+                        <div className="right menu">
+                            <div className="ui item">
+                                <Link className="ui button" to="/posts/new">
+                                    Create post
+                                </Link>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <PostsList posts={this.props.posts} deletePost={this.props.deletePost} />
+                    </div> : <div></div>
+                }  
+                <PostsList posts={this.props.posts} deletePost={this.props.deletePost} url={match} />
             </div>
         )
     }

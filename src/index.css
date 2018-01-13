@@ -40,3 +40,12 @@ form {
 .menu {
     margin: 20px 0 !important;
 }
+
+@media screen and (max-width: 768px) {
+    .menu {
+        width: 100%;
+    }
+    .ui.card {
+        margin: 0 auto;
+    }
+}

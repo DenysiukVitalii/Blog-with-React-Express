@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link, Route } from 'react-router-dom';
-import HomePage from '../containers/HomePage';
 import PostsPage from '../containers/PostsPage';
 import PostFormPage from '../containers/PostFormPage';
 import PostPage from '../containers/PostPage';
@@ -15,17 +14,14 @@ class App extends Component {
   render() {
     return (
       <div className="ui container">
-        <div className="ui menu">
-          <div className="header item">
-            Simple blog
-          </div>
-          <ActiveLink activeonlywhenexact={true} to="/" label="Posts" />
+        <div className="ui three item menu">
+          <ActiveLink activeonlywhenexact={true} to="/" label="Home" />
           <ActiveLink activeonlywhenexact={true} to="/posts" label="Admin" />
           <a className="item" href="https://denysiukvitalii.github.io">
             Contacts
           </a>
         </div>
-        <Route exact path="/" component={HomePage} />
+        <Route exact path="/" component={PostsPage} />
         <Route exact path="/posts" component={PostsPage} />
         <Route path="/posts/new" component={PostFormPage} />
         <Route path="/posts/edit/:_id" component={PostFormPage} />

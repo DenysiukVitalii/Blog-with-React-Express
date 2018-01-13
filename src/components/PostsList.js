@@ -2,14 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import PostCard from './PostCard';
  
-export default function PostsList({ posts, deletePost }) {
+export default function PostsList({ posts, deletePost, url }) {
     const emptyMessage = (
         <p>No posts</p>   
     );
 
     const postsList = (
-        <div className="ui four cards">
-            {posts.map(post => <PostCard post={post} key={post._id} deletePost={deletePost}/>)}
+        <div className="ui stackable four column grid">
+            {posts.map(post => <PostCard post={post} key={post._id} 
+                                         deletePost={deletePost} url={url}/>)}
         </div>   
     );
 
