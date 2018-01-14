@@ -50,7 +50,7 @@ class PostForm extends Component {
 
         if (isValid) {
             const { _id, title, cover, text, views } = this.state;
-            const date = new Date().toLocaleDateString();
+            const date = new Date();
             this.setState({ loading: true });
             this.props.savePost({_id, title, cover, text, date, views})
             .catch((err) => err.response.json().then(({errors}) => this.setState({ errors, loading: false})));

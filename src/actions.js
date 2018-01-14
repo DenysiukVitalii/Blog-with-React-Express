@@ -3,6 +3,10 @@ export const ADD_POST = 'ADD_POST';
 export const POST_FETCHED = 'POST_FETCHED';
 export const POST_UPDATED = 'POST_UPDATED';
 export const POST_DELETED = 'POST_DELETED';
+export const FILTER_DATE = 'FILTER_DATE';
+export const FILTER_POPULAR = 'FILTER_POPULAR';
+export const FILTER_ALPHABET = 'FILTER_ALPHABET';
+
 
 function handleResponse(response) {
     if (response.ok) {
@@ -45,6 +49,24 @@ export function postDeleted(postId) {
     return {
         type: POST_DELETED,
         postId
+    }
+}
+ 
+export const setDateFilter = () => {
+    return {
+        type: FILTER_DATE,
+    }
+}
+  
+export const setPopularFilter = () => {
+    return {
+        type: FILTER_POPULAR,
+    }
+};
+
+export const setAlphabetFilter = () => {
+    return {
+        type: FILTER_ALPHABET,
     }
 }
 

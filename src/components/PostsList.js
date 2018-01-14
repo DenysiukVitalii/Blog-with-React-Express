@@ -8,7 +8,7 @@ export default function PostsList({ posts, deletePost, url }) {
     );
 
     const postsList = (
-        <div className="ui stackable four column grid">
+        <div className="ui stackable four column grid posts-list">
             {posts.map(post => <PostCard post={post} key={post._id} 
                                          deletePost={deletePost} url={url}/>)}
         </div>   

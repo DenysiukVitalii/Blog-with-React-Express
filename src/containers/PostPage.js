@@ -40,22 +40,23 @@ class PostPage extends Component {
     }
 
     render() {
+        const {title, date, cover, views, text} = this.state;
         return (
             <div>   
                 <div className="ui secondary menu">
                     <div>
                         <h1>
-                            {this.state.title}
+                            {title}
                         </h1>
                         <div className="extra-info">
-                            <span className="date">{this.state.date}</span>
-                            <span><FaEye /> {this.state.views}</span>
+                            <span className="date">{(new Date(date)).toLocaleDateString()}</span>
+                            <span><FaEye /> {views}</span>
                         </div>
                     </div>
                 </div>
                 <div className="post">
-                    <img src={this.state.cover} alt="post cover"/>
-                    <p>{this.state.text}</p>
+                    <img src={cover} alt="post cover"/>
+                    <p>{text}</p>
                 </div>
             </div>
         )

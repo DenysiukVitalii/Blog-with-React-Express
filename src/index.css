@@ -49,3 +49,7 @@ form {
         margin: 0 auto;
     }
 }
+
+.posts-list {
+    margin-top: 30px !important;
+}

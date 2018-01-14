@@ -14,7 +14,7 @@ export default function PostCard({ post, deletePost, url }) {
                 <Link to={`/posts/post/${post._id}`} className="content">
                     <div className="header">{post.title}</div>
                     <div className="meta">
-                        <span>{post.date}</span>
+                        <span>{(new Date(post.date)).toLocaleDateString()}</span>
                         <span className="right floated">
                             <span><FaEye /> {post.views}</span>
                         </span>
