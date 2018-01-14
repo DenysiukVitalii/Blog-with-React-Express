@@ -112,7 +112,8 @@ export function fetchPosts() {
     return dispatch => {
         fetch('/api/posts')
             .then(res => res.json())
-            .then(data => dispatch(setPosts(data.posts)));
+            .then(data => dispatch(setPosts(data.posts)))
+            .then(data => dispatch(setDateFilter()));
     }
 }
 

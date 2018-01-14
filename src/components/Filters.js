@@ -20,21 +20,23 @@ class Filters extends Component {
     }
 
     render() {
+        const {active, types, selectedType} = this.state;
         return (
             <div className={classnames('ui floating dropdown labeled icon button',
-                 {active: this.state.active})} onClick={this.handleClick}>
+                 {active: active})} onClick={this.handleClick}>
                 <i className="filter icon"></i>
                 <span className="text">
-                {this.state.selectedType.color ? 
-                    <div className={classnames('ui empty circular label', {[this.state.selectedType.color]: true})}></div> : 
+                {selectedType.color ? 
+                    <div className={classnames('ui empty circular label', {[selectedType.color]: true})}></div> : 
                                     <div></div> }
-                    {this.state.selectedType.name}
+                    {selectedType.name}
                 </span>
-                <div className={classnames('menu transition', {visible: this.state.active})}>
+                <div className={classnames('menu transition', {visible: active})}>
                     <div className="scrolling menu">
                         {
-                            this.state.types.map(filter => (
-                                <div key={filter.name} className={classnames('item')} 
+                            types.map(filter => (
+                                <div key={filter.name} 
+                                     className={classnames('item', {active: filter.name === selectedType.name})} 
                                      onClick={() => this.handleSelect(filter)}>
                                     <div className={classnames('ui red empty circular label', filter.color)}></div>
                                     {filter.name}

@@ -18,7 +18,6 @@ class PostFormPage extends Component {
     
     savePost = ({_id, title, cover, text, date, views}) => {
         if (_id) {
-            console.log(views);
             return this.props.updatePost({ _id, title, cover, text, date, views }).then(
                 () => { this.setState({ redirect: true }) }
             );
