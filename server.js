@@ -18,6 +18,10 @@ if (!dev) {
     dbUrl = 'mongodb://admin:12345@ds133017.mlab.com:33017/simpleblog';
 
     app.use(express.static(path.resolve(__dirname, 'build')));
+    
+    app.get('/googlee420c21e29761c10.html', function (req, res) {
+        res.sendFile(path.join(__dirname, './public', 'googlee420c21e29761c10.html'));
+    });
 
     app.get('/', (req, res) => {
         res.sendFile(path.resolve(__dirname, 'build', 'index.html'));
