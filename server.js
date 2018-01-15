@@ -20,7 +20,7 @@ if (!dev) {
     app.use(express.static(path.resolve(__dirname, 'build')));
     
     app.get('/googlee420c21e29761c10.html', function (req, res) {
-        res.sendFile(path.join(__dirname, './public', 'googlee420c21e29761c10.html'));
+        res.sendFile(path.join(__dirname, 'build', 'googlee420c21e29761c10.html'));
     });
 
     app.get('/', (req, res) => {
