@@ -10,10 +10,9 @@ export default function posts(state = [], action = {}) {
         case POST_FETCHED: 
             const index = state.findIndex(item => item._id === action.post._id);
             if (index > -1) {
-                return state.map(item => {
-                    if (item._id === action.post._id) return action.post;
-                    return item;
-                })
+                return state.map(item => 
+                    (item._id === action.post._id) ? action.post : item
+                );
             } else {
                 return [
                     ...state,
@@ -21,10 +20,9 @@ export default function posts(state = [], action = {}) {
                 ]
             }
         case POST_UPDATED: 
-            return state.map(item => {
-                if (item._id === action.post._id) return action.post;
-                return item;
-            });
+            return state.map(item => 
+                (item._id === action.post._id) ? action.post : item
+            );
         case POST_DELETED:
             return state.filter(item => item._id !== action.postId);
         case SET_POSTS: 

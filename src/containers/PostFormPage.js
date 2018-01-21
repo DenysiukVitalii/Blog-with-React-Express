@@ -47,7 +47,7 @@ function mapStateToProps(state, props) {
     const { match } = props;
     if (match.params._id) {
         return {
-            post: state.posts.find(item => item._id === match.params._id)
+            post: state.get('posts').find(item => item._id === match.params._id)
         }
     }
     return { post: null };

@@ -23,7 +23,7 @@ const sortedPosts = (sortBy, posts) => {
 
 function mapStateToProps(state) {
     return {
-        posts: sortedPosts(state.filters, state.posts)
+        posts: sortedPosts(state.get('filters'), state.get('posts'))
     }
 }
 
