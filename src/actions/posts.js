@@ -1,15 +1,6 @@
 import * as types from '../types';
 import { setDateFilter } from './filters';
-
-function handleResponse(response) {
-    if (response.ok) {
-        return response.json();
-    } else {
-        let error = new Error(response.statusText);
-        error.response = response;
-        throw error;
-    }
-}
+import api from '../api';
 
 export const setPosts = posts => ({
     type: types.SET_POSTS, 
@@ -36,44 +27,28 @@ export const postDeleted = postId => ({
     postId
 })
 
+
 export const savePost = data => dispatch => 
-fetch('/api/posts', {
-        method: 'post',
-        body: JSON.stringify(data),
-        headers: {
-            "Content-Type": "application/json"
-        }
-}).then(handleResponse)
-.then(data => dispatch(addPost(data.post)));
+    api.posts.save(data)
+             .then(data => dispatch(addPost(data.post)));
+
 
 export const updatePost = data => dispatch => 
-fetch(`/api/posts/edit/${data._id}`, {
-    method: 'put',
-    body: JSON.stringify(data),
-    headers: {
-        "Content-Type": "application/json"
-    }
-}).then(handleResponse)
-.then(data => dispatch(postUpdated(data.post)));
+    api.posts.update(data)
+             .then(data => dispatch(postUpdated(data.post)));
+
 
 export const deletePost = id => dispatch => 
-fetch(`/api/posts/${id}`, {
-    method: 'delete',
-    headers: {
-        "Content-Type": "application/json"
-    }
-}).then(handleResponse)
-.then(data => dispatch(postDeleted(id)));
+    api.posts.delete(id)
+             .then(data => dispatch(postDeleted(id)));
 
-export const fetchPosts = () => dispatch => {
-fetch('/api/posts')
-    .then(res => res.json())
-    .then(data => dispatch(setPosts(data.posts)))
-    .then(data => dispatch(setDateFilter()));
-}
 
-export const fetchPost = id => dispatch => {
-fetch(`/api/posts/${id}`)
-    .then(res => res.json())
-    .then(data => dispatch(postFetched(data.post)));
-}
+export const fetchPosts = () => dispatch => 
+    api.posts.fetchPosts()
+       .then(data => dispatch(setPosts(data.posts)))
+       .then(data => dispatch(setDateFilter()));
+
+
+export const fetchPost = id => dispatch => 
+    api.posts.fetchPost(id)
+       .then(data => dispatch(postFetched(data.post)));
