@@ -1,4 +1,4 @@
-import {FILTER_DATE, FILTER_POPULAR, FILTER_ALPHABET } from '../actions';
+import {FILTER_DATE, FILTER_POPULAR, FILTER_ALPHABET } from '../types';
 
 export default function filters(state = FILTER_DATE, action) {
     switch (action.type) {

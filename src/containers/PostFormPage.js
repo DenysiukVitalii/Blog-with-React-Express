@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import { savePost, fetchPost, updatePost } from '../actions';
+import { savePost, fetchPost, updatePost } from '../actions/posts';
 import PostForm from '../components/PostForm';
 
 class PostFormPage extends Component {

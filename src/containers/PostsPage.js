@@ -1,10 +1,8 @@
 import { connect } from 'react-redux';
 import PostsPage from '../components/PostsPage';
-import { fetchPosts, deletePost, setDateFilter, 
-         setPopularFilter, setAlphabetFilter,
-         FILTER_DATE,
-         FILTER_POPULAR,
-         FILTER_ALPHABET, } from '../actions'; 
+import { fetchPosts, deletePost} from '../actions/posts';
+import { setDateFilter, setPopularFilter, setAlphabetFilter } from '../actions/filters'; 
+import { FILTER_DATE, FILTER_POPULAR, FILTER_ALPHABET } from '../types'; 
 
 const sortByDate = (a, b) => {
     return +new Date(b.date) - +new Date(a.date)

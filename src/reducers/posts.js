@@ -1,4 +1,4 @@
-import { SET_POSTS, ADD_POST, POST_FETCHED, POST_UPDATED, POST_DELETED } from '../actions';
+import { SET_POSTS, ADD_POST, POST_FETCHED, POST_UPDATED, POST_DELETED } from '../types';
 
 export default function posts(state = [], action = {}) {
     switch(action.type) {

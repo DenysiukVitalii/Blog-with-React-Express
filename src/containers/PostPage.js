@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchPost, updatePost } from '../actions'; 
+import { fetchPost, updatePost } from '../actions/posts'; 
 import FaEye from 'react-icons/lib/fa/eye';
  
 class PostPage extends Component {
