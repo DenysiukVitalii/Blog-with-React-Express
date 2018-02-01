@@ -20,7 +20,8 @@ class PostForm extends Component {
             cover: nextProps.post.cover,
             text: nextProps.post.text,
             date: nextProps.post.date,
-            views: nextProps.post.views
+            views: nextProps.post.views,
+            errors: nextProps.errors
         })
     }
 
@@ -52,8 +53,9 @@ class PostForm extends Component {
             const { _id, title, cover, text, views } = this.state;
             const date = new Date();
             this.setState({ loading: true });
+            console.log(this.props.errors)
             this.props.savePost({_id, title, cover, text, date, views})
-            .catch((err) => err.response.json().then(({errors}) => this.setState({ errors, loading: false})));
+            //.catch((err) => err.response.json().then(({errors}) => this.setState({ errors, loading: false})));
         }
 
     }

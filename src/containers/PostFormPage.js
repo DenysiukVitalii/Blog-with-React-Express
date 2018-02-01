@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import { savePost, fetchPost, updatePost } from '../actions/posts';
+import { savePostRequest, fetchPost, updatePost } from '../actions/posts';
 import PostForm from '../components/PostForm';
 
 class PostFormPage extends Component {
     state = {
-        redirect: false
+        redirect: false,
+        errors: {}
     }
     
     componentDidMount = () => {
@@ -18,13 +19,12 @@ class PostFormPage extends Component {
     
     savePost = ({_id, title, cover, text, date, views}) => {
         if (_id) {
-            return this.props.updatePost({ _id, title, cover, text, date, views }).then(
-                () => { this.setState({ redirect: true }) }
-            );
+            this.setState({ redirect: true })
+            return this.props.updatePost({ _id, title, cover, text, date, views });
         } else {
-            return this.props.savePost({title, cover, text, date, views: 0}).then(
-                () => { this.setState({ redirect: true }) }
-            );
+            this.setState({ redirect: true })
+            console.log(this.props.serverErrors);
+            return this.props.savePost({title, cover, text, date, views: 0});
         }
     }
 
@@ -36,6 +36,7 @@ class PostFormPage extends Component {
                     <Redirect to="/posts" /> :
                     <PostForm 
                         post={this.props.post}
+                        errors={this.state.errors}
                         savePost={this.savePost}
                     />
                 }
@@ -45,12 +46,15 @@ class PostFormPage extends Component {
 }
 function mapStateToProps(state, props) {
     const { match } = props;
+    console.log(state.get('formErrors').errors);
     if (match.params._id) {
         return {
-            post: state.get('posts').find(item => item._id === match.params._id)
+            post: state.get('posts').find(item => item._id === match.params._id),
+            serverErrors: state.get('formErrors').errors
         }
     }
     return { post: null };
 }
 
-export default connect(mapStateToProps, { savePost, fetchPost, updatePost })(PostFormPage);
+export default connect(mapStateToProps, { savePost: savePostRequest, 
+                                          fetchPost, updatePost })(PostFormPage);

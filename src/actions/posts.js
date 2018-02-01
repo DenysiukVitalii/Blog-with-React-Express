@@ -27,11 +27,19 @@ export const postDeleted = postId => ({
     postId
 })
 
+export const savePostRequest = data => ({
+    type: types.SAVE_POST_REQUEST,
+    data
+})
+export const savePostFailure = errors => ({
+    type: types.SAVE_POST_FAILURE,
+    errors
+})
 
-export const savePost = data => dispatch => 
+/*export const savePost = data => dispatch => 
     api.posts.save(data)
              .then(data => dispatch(addPost(data.post)));
-
+*/
 
 export const updatePost = data => dispatch => 
     api.posts.update(data)
